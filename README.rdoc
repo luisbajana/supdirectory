@@ -1,0 +1,1 @@
+createdb -O Luis -T postgres supdirectory

@@ -1,0 +1,77 @@
+<div class="container">
+
+<%- model_class = Outsource -%>
+<div class="page-header">
+  <h1>Outsource Contacts</h1>
+</div>
+
+<div class="row">
+
+
+<div class="col-md-2">
+  <div class="form-group">
+  <%= link_to 'Add an Outsource Contact',new_outsource_path, :class => 'btn btn-success' %>
+  </div>
+</div>
+
+
+<div class="col-md-6 col-md-offset-4">
+<%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <div class="col-md-offset-3 col-lg-5">
+    <%= f.search_field :field_cont, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Search by Profession", :class => 'btn btn-default' %>
+  </div>
+<% end %>
+</div>
+
+
+</div>
+
+
+<br />
+<br />
+<br />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:field) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @outsources.each do |outsource| %>
+      <tr>
+        <td><%= outsource.name %></td>
+        <td><%= outsource.field %></td>
+        <td><%= outsource.email %></td>
+        <td><%= outsource.phone %></td>
+        <td><%= outsource.country %></td>
+        <td><%= outsource.description %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_outsource_path(outsource), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      outsource_path(outsource),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+</div>

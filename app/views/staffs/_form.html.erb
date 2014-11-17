@@ -1,0 +1,41 @@
+<%= form_for @staff, :html => { :class => 'form-horizontal' } do |f| %>
+    
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <%= f.label :group, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :group, options_for_select(["Operations Manager","Alumni + Global Networks","Alliances","Finance","Internal Management Control","Account Executive","Financial Executive","Director","Marketing"]), {}, {:class=>"form-control"}  %>
+    </div>
+  </div>
+  
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit "Create Staff Member", :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                staffs_path, :class => 'btn' %>
+    </div>
+  </div>
+
+  
+<% end %>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supdirectory</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" class="padding-top: 10px;" href="#"><%= image_tag "logo.png" %></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="<%= 'active' if current_page?('/startups') %>"><a href="/startups">Startups</a></li>
+                <li class="<%= 'active' if current_page?('/staff') %>"><a href="/staff">Staff</a></li>
+                <li class="<%= 'active' if current_page?('/outsource') %>"><a href="/outsource">Outsource</a></li>
+                <li class="<%= 'active' if current_page?('/mentors') %>"><a href="/mentors">Mentors</a></li>
+                <li class="<%= 'active' if current_page?('/contacts') %>"><a href="/contacts">Contacts</a></li>
+              </ul>
+            </div>
+          </div>
+    </nav>
+
+
+<%= yield %>
+
+
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <div class="container">
+    <footer class="footer" style="padding-top: 19px; color: #777; border-top: 1px solid #e5e5e5">
+        <p>With love from Generation 10. </p>
+      </footer>
+    </div>
+
+</body>
+</html>

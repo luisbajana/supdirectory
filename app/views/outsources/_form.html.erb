@@ -1,0 +1,53 @@
+<%= form_for @outsource, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Field", :class => 'control-label col-lg-2' %>
+    
+      <div class="col-lg-10">
+      <%= f.select :field, options_for_select(["Graphic Designer","Python Developer","Ruby Developer","PHP Developer","Front-end Developer","UI/UX Designer","Social Networks Executive","Accounting Manager","Lawyer","Video / Multimedia"]), {}, {:class=>"form-control"}  %>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :country, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :country, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :description, :class => 'form-control', :size => "20x5" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit "Create an Outsource Contact", :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                outsources_path, :class => 'btn' %>
+    </div>
+  </div>
+
+  
+<% end %>

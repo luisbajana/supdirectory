@@ -1,0 +1,76 @@
+<div class="container">
+
+<%- model_class = Staff -%>
+<div class="page-header">
+  <h1>Staff Members</h1>
+</div>
+
+
+<div class="row">
+
+
+<div class="col-md-2">
+  <div class="form-group">
+  <%= link_to "Add Staff Member",
+            new_staff_path,
+            :class => 'btn btn-success' %>
+  </div>
+</div>
+
+
+
+<div class="col-md-6 col-md-offset-4">
+<%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <div class="col-md-offset-3 col-lg-5">
+    <%= f.search_field :name_cont, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Search by Name", :class => 'btn btn-default' %>
+  </div>
+<% end %>
+</div>
+
+</div>
+
+<br />
+<br />
+<br />
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link @search, :name, "Name" %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= sort_link @search, :group, "Role" %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @staffs.each do |staff| %>
+      <tr>
+        <td><%= staff.name %></td>
+        <td><%= staff.email %></td>
+        <td><%= staff.description %></td>
+        <td><%= staff.group %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_staff_path(staff), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      staff_path(staff),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+</div>

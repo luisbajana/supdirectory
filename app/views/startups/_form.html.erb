@@ -1,0 +1,82 @@
+
+
+<%= form_for @startup, :html => { :class => "form-horizontal startup" } do |f| %>
+
+  <% if @startup.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@startup.errors.count, "error") %> prohibited this startup from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @startup.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :startup_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :startup_name, :class => 'form-control' %>
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :contact_name, :class => 'form-control' %>
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <%= f.label :industry, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :industry, options_for_select(["Consulting","E-commerce","Education","Energy & Clean Tech","Finance","Gaming","Healthcare & Biotechnology","IT & Enterprise Software","Import/Export","Mobile & Wireless","Natural Resources - mining, food, lumber, etc","Media and Advertising","Social Enterprise","Social Media/Social Network","Tourism","Other"]), {}, {:class=>"form-control"}  %>
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <%= f.label :tribe, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :tribe, options_for_select(["Education","Social Enterprise","Mobile","Marketing"]), {}, {:class=>"form-control"}  %>
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :generation, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :generation, options_for_select(["1","2","3","4","5","6","7","8","9","10","11"]), {}, {:class=>"form-control"}  %>
+    </div>
+    
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :country, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :country, :class => 'form-control' %>
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                startups_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
+
