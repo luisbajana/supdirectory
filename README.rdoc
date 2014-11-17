@@ -1,1 +1,3 @@
-createdb -O Luis -T postgres supdirectory
+-- Plugins / GEMS
+- Bootstrap Framework
+- Ransack (search engine)
