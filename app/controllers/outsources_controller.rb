@@ -47,7 +47,7 @@ class OutsourcesController < ApplicationController
 
     respond_to do |format|
       if @outsource.save
-        format.html { redirect_to @outsource, notice: 'Outsource was successfully created.' }
+        format.html { redirect_to "/outsource", notice: 'Outsource was successfully created.' }
         format.json { render json: @outsource, status: :created, location: @outsource }
       else
         format.html { render action: "new" }

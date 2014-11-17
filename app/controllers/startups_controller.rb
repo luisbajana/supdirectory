@@ -46,7 +46,7 @@ class StartupsController < ApplicationController
 
     respond_to do |format|
       if @startup.save
-        format.html { redirect_to @startup, notice: 'Startup was successfully created.' }
+        format.html { redirect_to "/startups", notice: 'Startup was successfully created.' }
         format.json { render json: @startup, status: :created, location: @startup }
       else
         format.html { render action: "new" }
